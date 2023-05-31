@@ -25,18 +25,19 @@ public class RedisConfig {
      * @param connectionFactory
      * @return
      */
-    @Bean
-    public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {
-        Jackson2JsonRedisSerializer<Object> redisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-        redisSerializer.setObjectMapper(objectMapper);
-        RedisCacheConfiguration cacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
-                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer));
-        RedisCacheManager redisCacheManager = RedisCacheManager.builder(connectionFactory).cacheDefaults(cacheConfiguration).build();
-        return redisCacheManager;
-    }
+//    @Bean
+//    public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {
+//        //MultiCache二级缓存功能需要注释此RedisCacheManager生成代码
+//        Jackson2JsonRedisSerializer<Object> redisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+//        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+//        redisSerializer.setObjectMapper(objectMapper);
+//        RedisCacheConfiguration cacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
+//                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer));
+//        RedisCacheManager redisCacheManager = RedisCacheManager.builder(connectionFactory).cacheDefaults(cacheConfiguration).build();
+//        return redisCacheManager;
+//    }
 
     @Bean
     public RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory) {

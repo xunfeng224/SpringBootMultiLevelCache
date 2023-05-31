@@ -24,7 +24,6 @@ public class KeyExpiredListener extends KeyExpirationEventMessageListener {
      * @param pattern 主题
      */
     @Override
-    public void onMessage(Message message, byte[] pattern) {
-        log.info("收到key过期事件，消息主题是：{},消息内容是：{}", message, new String(pattern));
+    public void onMessage(Message message, byte[] pattern) {log.info("收到key过期事件，消息主题是：{},消息内容是：{}", message, new String(pattern));
     }
 }

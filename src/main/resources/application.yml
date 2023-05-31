@@ -19,3 +19,14 @@ spring:
     database: 9
   cache:
     type: redis
+multi:
+  local:
+    #Caffeine配置参考:com.github.benmanes.caffeine.cache.CaffeineSpec
+    spec: maximumSize=100,expireAfterWrite=90s
+    settings:
+      - name: dict
+        spec: maximumSize=100,expireAfterWrite=60s
+  remote:
+    spec: ttl=90
+    settings:
+      - name: dict

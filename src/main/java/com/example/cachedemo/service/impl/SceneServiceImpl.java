@@ -21,13 +21,13 @@ import java.util.List;
 @CacheConfig(cacheNames = "scene")
 public class SceneServiceImpl extends ServiceImpl<SceneMapper, Scene> implements SceneService {
     @Override
-    @CachePut(key = "#str")
+//    @CachePut(key = "#str")
     public List<Scene> listScene(String str) {
         return this.list();
     }
 
     @Override
-    @Cacheable(key = "#sceneId")
+//    @Cacheable(key = "#sceneId")
     public Scene getSceneById(Long sceneId) {
         return this.getById(sceneId);
     }
